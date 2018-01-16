@@ -1,0 +1,32 @@
+/*	Storykit typography
+	===================
+	
+	The following are special typographic styles specifically for
+	a story-style layout. Copy these variables into your local
+	config file to use.
+	
+	font: font-style font-variant font-weight font-size/line-height font-family
+	font: italic small-caps bold 2em/1 $serif;
+*/
+
+$STORYKIT__pullquote-font: italic normal 2em/1.2 $serif;
+$STORYKIT__sidenote-font: normal 0.9em/1.1 $sans-serif;
+
+
+
+
+
+
+
+
+
+.pullquote {
+	p {
+		font: $STORYKIT__pullquote-font;
+	}
+}
+.sidenote {
+	p {
+		font: $STORYKIT__sidenote-font;
+	}
+}

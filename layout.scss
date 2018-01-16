@@ -1,0 +1,141 @@
+/* $main_content_width: 36em; */
+
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+    font-size: 1.4em;
+    font-size: calc(0.7em + 0.5 * ((100vw - 20em) / 60));
+}
+
+
+@mixin extrawide($element_width) {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+
+	@media (max-width: $element_width) {
+		width: 100vw;
+		margin-left: calc(((100vw - #{$main_content_width}) / 2) * -1);
+	}
+	
+	@media (min-width: $element_width) {
+		width: $element_width;
+		margin-left: calc(((#{$element_width} - #{$main_content_width}) / 2) * -1);
+	}
+}
+
+p {
+	margin-top: 0;
+	
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+
+/*	Modifiers
+	--------- */
+
+.indent-left {
+	margin-left: -16%;
+}
+.indent-right {
+	margin-right: -16%;
+}
+
+.place-left {
+	float: left;
+}
+.place-right {
+	float: right;
+}
+
+.width-half {
+	width: 50%;
+}
+.width-wide {
+	@include extrawide(50em);
+}
+.width-full {
+	@include extrawide(100vw);	
+}
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+.content {
+	max-width: $main_content_width;
+	@extend .center;
+}
+
+.spacing-wide {
+	padding: 1em;
+}
+.spacing-wide-inner {
+	.col {
+		padding: 1em;
+	}
+}
+
+.cols {
+	display: flex;
+	
+	&.cols-two {
+		.col {
+			width: 50%;
+		}
+	}
+}
+
+
+
+/*	Modules
+	------- */
+
+.pullquote {
+}
+.sidenote {
+	
+	@media (min-width: $medium) {
+		width: 50%;
+
+		&.place-left {
+			float: left;
+		}
+		&.place-right {
+			float: right;
+		}
+		
+	}
+	@media (min-width: $large) {
+		padding: 2em;
+		position: absolute;
+		width: calc((100vw - #{$main_content_width}) / 2); 
+	
+		&.place-left {
+			left: 0;
+		}
+		&.place-right {
+			right: 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
